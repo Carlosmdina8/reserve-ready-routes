@@ -1,9 +1,6 @@
 import { TrendingUp, Euro, Zap } from 'lucide-react';
 
 const ImpulsoLocal = () => {
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section id="impulso-local" className="py-20 bg-card">
@@ -39,12 +36,14 @@ const ImpulsoLocal = () => {
                 Es la manera más rápida y sencilla de comprobar cómo funciona nuestro método.
               </p>
               
-              <button
-                onClick={scrollToContact}
-                className="bg-secondary text-secondary-foreground px-8 py-4 rounded-radius text-lg font-semibold hover:opacity-90 transform hover:scale-105 transition-all duration-300"
+              <a
+                href="https://impulsolocal.medinaagency.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-secondary text-secondary-foreground px-8 py-4 rounded-radius text-lg font-semibold hover:opacity-90 transform hover:scale-105 transition-all duration-300 inline-block"
               >
                 Conoce Impulso Local
-              </button>
+              </a>
             </div>
             
             <div className="mt-8 p-6 bg-muted rounded-radius">

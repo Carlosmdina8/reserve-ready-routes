@@ -6,31 +6,31 @@ const Method = () => {
       number: '1',
       icon: MapPin,
       title: 'Impulso Local',
-      description: 'Optimización de perfil (el primer paso)'
+      description: 'Optimización de perfil (el primer paso)',
+      url: 'https://impulsolocal.medinaagency.es'
     },
     {
       number: '2',
       icon: Crown,
       title: 'Servicio Premium',
-      description: 'Para restaurantes exigentes'
+      description: 'Para restaurantes exigentes',
+      url: 'https://premium.medinaagency.es'
     },
     {
       number: '3',
       icon: Users,
       title: 'Mesas Llenas',
-      description: 'Sistema de reservas optimizado'
+      description: 'Sistema de reservas optimizado',
+      url: 'https://mesasllenas.medinaagency.es'
     },
     {
       number: '4',
       icon: Map,
       title: 'Tu Restaurante en el Mapa',
-      description: 'Visibilidad máxima en tu zona'
+      description: 'Visibilidad máxima en tu zona',
+      url: 'https://enelmapa.medinaagency.es'
     }
   ];
-
-  const scrollToImpulsoLocal = () => {
-    document.getElementById('impulso-local')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section id="method" className="py-20 bg-gradient-dark">
@@ -49,9 +49,12 @@ const Method = () => {
             {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (
-                <div
+                <a
                   key={index}
-                  className="bg-card/10 backdrop-blur-sm p-6 rounded-radius border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:transform hover:scale-105"
+                  href={pillar.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-card/10 backdrop-blur-sm p-6 rounded-radius border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:transform hover:scale-105 block cursor-pointer"
                 >
                   <div className="flex items-start gap-4">
                     <div className="relative">
@@ -71,18 +74,20 @@ const Method = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
           
           <div className="text-center">
-            <button
-              onClick={scrollToImpulsoLocal}
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-radius text-lg font-semibold hover:shadow-glow transform hover:scale-105 transition-all duration-300"
+            <a
+              href="https://impulsolocal.medinaagency.es"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-radius text-lg font-semibold hover:shadow-glow transform hover:scale-105 transition-all duration-300 inline-block"
             >
               Empieza con Impulso Local
-            </button>
+            </a>
           </div>
         </div>
       </div>

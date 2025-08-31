@@ -40,7 +40,7 @@ const AboutUs = () => {
           
           <div className="mt-12 p-6 bg-gradient-primary rounded-radius shadow-lg inline-block">
             <p className="text-primary-foreground font-bold text-xl">Medina Agency</p>
-            <p className="text-primary-foreground/90 mt-2">Fundador: [Tu nombre]</p>
+            <p className="text-primary-foreground/90 mt-2">Fundador: Carlos Medina</p>
           </div>
         </div>
       </div>

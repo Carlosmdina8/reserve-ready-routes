@@ -111,7 +111,7 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-primary flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Teléfono</h3>
-                    <p className="text-muted-foreground">+34 XXX XXX XXX</p>
+                    <p className="text-muted-foreground">+34 671 765 373</p>
                   </div>
                 </div>
               </div>
@@ -121,7 +121,7 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-primary flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                    <p className="text-muted-foreground">info@medinaagency.com</p>
+                    <p className="text-muted-foreground">info.contact@medinaagency.es</p>
                   </div>
                 </div>
               </div>

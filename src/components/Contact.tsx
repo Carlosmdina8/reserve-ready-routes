@@ -13,10 +13,17 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
+    // Create email content
+    const subject = `Nuevo contacto de ${formData.name} - ${formData.restaurant}`;
+    const body = `Nombre: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ARestaurante: ${formData.restaurant}`;
+    
+    // Open email client with pre-filled data
+    window.location.href = `mailto:info.contact@medinaagency.es?subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    // Show success message
     toast({
       title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo muy pronto.",
+      description: "Se abrirá tu cliente de correo para enviar el mensaje.",
     });
     
     // Reset form

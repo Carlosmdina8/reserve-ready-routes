@@ -15,8 +15,8 @@ const Contact = () => {
     e.preventDefault();
     
     // Create email content
-    const subject = `Nuevo contacto de ${formData.name} - ${formData.restaurant}`;
-    const body = `Nombre: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ATeléfono: ${formData.phone}%0D%0ARestaurante: ${formData.restaurant}`;
+    const subject = `📩 Nuevo lead desde Medina Agency`;
+    const body = `- Nombre: ${formData.name}%0D%0A- Email: ${formData.email}%0D%0A- Teléfono: ${formData.phone}%0D%0A- Restaurante: ${formData.restaurant}`;
     
     // Open email client with pre-filled data
     window.location.href = `mailto:info.contact@medinaagency.es?subject=${encodeURIComponent(subject)}&body=${body}`;

@@ -1,34 +1,6 @@
-import { useState } from 'react';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    restaurant: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    // Show success message
-    toast({
-      title: "🎉 ¡Gracias por contactarnos!",
-      description: "Hemos recibido tu mensaje y en breve nos pondremos en contacto contigo. Tu restaurante acaba de dar el primer paso para llenar más mesas 🚀",
-    });
-    
-    // Form will submit naturally to Formsubmit
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const fieldName = e.target.id; // Use id to map to state keys
-    setFormData({
-      ...formData,
-      [fieldName]: e.target.value
-    });
-  };
-
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -44,7 +16,7 @@ const Contact = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-card p-8 rounded-radius shadow-lg">
-              <form onSubmit={handleSubmit} action="https://formsubmit.co/info.contact@medinaagency.es" method="POST" className="space-y-6">
+              <form action="https://formsubmit.co/info.contact@medinaagency.es" method="POST" className="space-y-6">
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_subject" value="📩 Nuevo lead desde Medina Agency" />
                 <input type="hidden" name="_next" value="medinaagency.es" />
@@ -56,9 +28,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="name"
-                    name="Nombre"
-                    value={formData.name}
-                    onChange={handleChange}
+                    name="name"
                     required
                     className="w-full px-4 py-3 bg-background border border-input rounded-radius focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
                   />
@@ -71,9 +41,7 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
-                    name="Correo electrónico"
-                    value={formData.email}
-                    onChange={handleChange}
+                    name="email"
                     required
                     className="w-full px-4 py-3 bg-background border border-input rounded-radius focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
                   />
@@ -86,9 +54,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     id="phone"
-                    name="Teléfono"
-                    value={formData.phone}
-                    onChange={handleChange}
+                    name="phone"
                     required
                     className="w-full px-4 py-3 bg-background border border-input rounded-radius focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
                   />
@@ -101,9 +67,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="restaurant"
-                    name="Restaurante"
-                    value={formData.restaurant}
-                    onChange={handleChange}
+                    name="restaurant"
                     required
                     className="w-full px-4 py-3 bg-background border border-input rounded-radius focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
                   />

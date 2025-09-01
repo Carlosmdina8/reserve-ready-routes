@@ -47,7 +47,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} action="https://formsubmit.co/info.contact@medinaagency.es" method="POST" className="space-y-6">
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_subject" value="📩 Nuevo lead desde Medina Agency" />
-                <input type="hidden" name="_next" value="https://reserve-ready-routes.lovable.app" />
+                <input type="hidden" name="_next" value="medinaagency.es" />
                 
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">

@@ -73,11 +73,7 @@ const Contact = () => {
                   />
                 </div>
                 
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-primary text-primary-foreground py-4 rounded-radius font-semibold hover:shadow-glow transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <Send className="w-5 h-5" />
+                <button type="submit" className="w-full bg-gradient-primary text-primary-foreground py-4 rounded-radius font-semibold hover:shadow-glow transform hover:scale-105 transition-all duration-300">
                   Enviar mensaje
                 </button>
               </form>

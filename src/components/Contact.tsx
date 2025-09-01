@@ -1,6 +1,26 @@
+import { useRef } from 'react';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
+  const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Show success message
+    toast({
+      title: "🎉 ¡Gracias por contactarnos!",
+      description: "Hemos recibido tu mensaje y en breve nos pondremos en contacto contigo. Tu restaurante acaba de dar el primer paso para llenar más mesas 🚀",
+    });
+    
+    // Submit form after showing toast (wait a bit for the toast to be visible)
+    setTimeout(() => {
+      formRef.current?.submit();
+    }, 2000);
+  };
+
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -16,7 +36,7 @@ const Contact = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-card p-8 rounded-radius shadow-lg">
-              <form action="https://formsubmit.co/info.contact@medinaagency.es" method="POST" className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} action="https://formsubmit.co/info.contact@medinaagency.es" method="POST" className="space-y-6">
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_subject" value="📩 Nuevo lead desde Medina Agency" />
                 <input type="hidden" name="_next" value="https://www.medinaagency.es" />

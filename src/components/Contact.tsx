@@ -22,9 +22,10 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const fieldName = e.target.id; // Use id to map to state keys
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [fieldName]: e.target.value
     });
   };
 
@@ -55,7 +56,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="name"
-                    name="name"
+                    name="Nombre"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -70,7 +71,7 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="Correo electrónico"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -85,7 +86,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     id="phone"
-                    name="phone"
+                    name="Teléfono"
                     value={formData.phone}
                     onChange={handleChange}
                     required
@@ -100,7 +101,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="restaurant"
-                    name="restaurant"
+                    name="Restaurante"
                     value={formData.restaurant}
                     onChange={handleChange}
                     required

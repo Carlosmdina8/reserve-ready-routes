@@ -23,8 +23,8 @@ const Contact = () => {
     
     // Show success message
     toast({
-      title: "¡Mensaje enviado!",
-      description: "Se abrirá tu cliente de correo para enviar el mensaje.",
+      title: "🎉 ¡Gracias por contactarnos!",
+      description: "Hemos recibido tu mensaje y en breve nos pondremos en contacto contigo. Tu restaurante acaba de dar el primer paso para llenar más mesas 🚀",
     });
     
     // Reset form

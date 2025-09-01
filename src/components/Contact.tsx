@@ -12,28 +12,13 @@ const Contact = () => {
   });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Create email content
-    const subject = `📩 Nuevo lead desde Medina Agency`;
-    const body = `- Nombre: ${formData.name}%0D%0A- Email: ${formData.email}%0D%0A- Teléfono: ${formData.phone}%0D%0A- Restaurante: ${formData.restaurant}`;
-    
-    // Open email client with pre-filled data
-    window.location.href = `mailto:info.contact@medinaagency.es?subject=${encodeURIComponent(subject)}&body=${body}`;
-    
     // Show success message
     toast({
       title: "🎉 ¡Gracias por contactarnos!",
       description: "Hemos recibido tu mensaje y en breve nos pondremos en contacto contigo. Tu restaurante acaba de dar el primer paso para llenar más mesas 🚀",
     });
     
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      restaurant: ''
-    });
+    // Form will submit naturally to Formsubmit
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +43,11 @@ const Contact = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-card p-8 rounded-radius shadow-lg">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} action="https://formsubmit.co/info.contact@medinaagency.es" method="POST" className="space-y-6">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="📩 Nuevo lead desde Medina Agency" />
+                <input type="hidden" name="_next" value="https://medinaagency.es/gracias" />
+                
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Nombre

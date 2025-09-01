@@ -7,6 +7,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     restaurant: ''
   });
 
@@ -15,7 +16,7 @@ const Contact = () => {
     
     // Create email content
     const subject = `Nuevo contacto de ${formData.name} - ${formData.restaurant}`;
-    const body = `Nombre: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ARestaurante: ${formData.restaurant}`;
+    const body = `Nombre: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ATeléfono: ${formData.phone}%0D%0ARestaurante: ${formData.restaurant}`;
     
     // Open email client with pre-filled data
     window.location.href = `mailto:info.contact@medinaagency.es?subject=${encodeURIComponent(subject)}&body=${body}`;
@@ -30,6 +31,7 @@ const Contact = () => {
     setFormData({
       name: '',
       email: '',
+      phone: '',
       restaurant: ''
     });
   };
@@ -81,6 +83,21 @@ const Contact = () => {
                     id="email"
                     name="email"
                     value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-background border border-input rounded-radius focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                    Teléfono
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-background border border-input rounded-radius focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"

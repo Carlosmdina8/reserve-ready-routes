@@ -19,7 +19,7 @@ const Contact = () => {
               <form action="https://formsubmit.co/info.contact@medinaagency.es" method="POST" className="space-y-6">
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_subject" value="📩 Nuevo lead desde Medina Agency" />
-                <input type="hidden" name="_next" value="medinaagency.es" />
+                <input type="hidden" name="_next" value="https://www.medinaagency.es" />
                 
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">

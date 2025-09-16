@@ -79,20 +79,6 @@ const Contact = () => {
                     className="w-full px-4 py-3 bg-background border border-input rounded-radius focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
                   />
                 </div>
-                
-                <div>
-                  <label htmlFor="restaurant" className="block text-sm font-medium text-foreground mb-2">
-                    Restaurante
-                  </label>
-                  <input
-                    type="text"
-                    id="restaurant"
-                    name="restaurant"
-                    required
-                    className="w-full px-4 py-3 bg-background border border-input rounded-radius focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
-                  />
-                </div>
-                
                 <button type="submit" className="w-full bg-gradient-primary text-primary-foreground py-4 rounded-radius font-semibold hover:shadow-glow transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                   <Send className="w-5 h-5" />
                   Enviar mensaje

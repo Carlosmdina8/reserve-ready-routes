@@ -6,19 +6,37 @@ const Contact = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Show success message
-    toast({
-      title: "🎉 ¡Gracias por contactarnos!",
-      description: "Hemos recibido tu mensaje y en breve nos pondremos en contacto contigo. Tu restaurante acaba de dar el primer paso para llenar más mesas 🚀",
-    });
+    const formData = new FormData(formRef.current!);
     
-    // Submit form after showing toast (wait a bit for the toast to be visible)
-    setTimeout(() => {
-      formRef.current?.submit();
-    }, 2000);
+    try {
+      // Submit form directly to FormSubmit
+      const response = await fetch('https://formsubmit.co/info.contact@medinaagency.es', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (response.ok) {
+        // Show success message
+        toast({
+          title: "🎉 ¡Gracias por contactarnos!",
+          description: "Hemos recibido tu mensaje y en breve nos pondremos en contacto contigo.",
+        });
+        
+        // Reset form
+        formRef.current?.reset();
+      } else {
+        throw new Error('Error al enviar el formulario');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Hubo un problema al enviar el mensaje. Por favor, intenta de nuevo.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (

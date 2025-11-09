@@ -26,6 +26,20 @@ const Footer = () => {
             </a>
           </div>
           
+          <div className="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+            <a href="#" className="text-secondary-foreground/70 hover:text-secondary-foreground transition-colors">
+              Aviso legal
+            </a>
+            <span className="text-secondary-foreground/50">·</span>
+            <a href="#" className="text-secondary-foreground/70 hover:text-secondary-foreground transition-colors">
+              Política de privacidad
+            </a>
+            <span className="text-secondary-foreground/50">·</span>
+            <a href="#" className="text-secondary-foreground/70 hover:text-secondary-foreground transition-colors">
+              Cookies
+            </a>
+          </div>
+          
           <div className="text-center text-secondary-foreground/70 text-sm">
             <p>&copy; {new Date().getFullYear()} Medina Agency. Todos los derechos reservados.</p>
           </div>

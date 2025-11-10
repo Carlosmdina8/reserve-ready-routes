@@ -2,45 +2,62 @@ import { Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary py-12">
+    <footer className="bg-[#111111] py-16">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-secondary-foreground mb-2">
-              Medina Agency
-            </h3>
-            <p className="text-secondary-foreground/80">
-              Tu socio digital en el éxito gastronómico
-            </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+            {/* Left: Logo + Brand */}
+            <div className="flex items-center gap-4">
+              <img 
+                src="/brand/medina-logo.png" 
+                alt="Medina Agency" 
+                className="h-10 w-10 rounded-full"
+              />
+              <span className="text-xl font-bold text-[#E5E7EB]">
+                Medina Agency
+              </span>
+            </div>
+            
+            {/* Right: Legal Links */}
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <a 
+                href="/aviso-legal" 
+                className="text-[#E5E7EB]/70 hover:text-[#E5E7EB] transition-colors"
+              >
+                Aviso legal
+              </a>
+              <span className="text-[#E5E7EB]/50">·</span>
+              <a 
+                href="/politica-privacidad" 
+                className="text-[#E5E7EB]/70 hover:text-[#E5E7EB] transition-colors"
+              >
+                Política de privacidad
+              </a>
+              <span className="text-[#E5E7EB]/50">·</span>
+              <a 
+                href="/politica-de-cookies" 
+                className="text-[#E5E7EB]/70 hover:text-[#E5E7EB] transition-colors"
+              >
+                Cookies
+              </a>
+            </div>
           </div>
           
-          <div className="flex justify-center gap-6 mb-8">
+          {/* Instagram */}
+          <div className="flex justify-center mb-8">
             <a
               href="https://www.instagram.com/medina_agency_"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:shadow-glow transition-all duration-300"
+              className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:opacity-90 transition-all duration-300 focus:ring-2 focus:ring-primary/40"
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5 text-primary-foreground" />
             </a>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-4 mb-4 text-sm">
-            <a href="#" className="text-secondary-foreground/70 hover:text-secondary-foreground transition-colors">
-              Aviso legal
-            </a>
-            <span className="text-secondary-foreground/50">·</span>
-            <a href="#" className="text-secondary-foreground/70 hover:text-secondary-foreground transition-colors">
-              Política de privacidad
-            </a>
-            <span className="text-secondary-foreground/50">·</span>
-            <a href="#" className="text-secondary-foreground/70 hover:text-secondary-foreground transition-colors">
-              Cookies
-            </a>
-          </div>
-          
-          <div className="text-center text-secondary-foreground/70 text-sm">
+          {/* Copyright */}
+          <div className="text-center text-[#E5E7EB]/70 text-sm">
             <p>&copy; {new Date().getFullYear()} Medina Agency. Todos los derechos reservados.</p>
           </div>
         </div>

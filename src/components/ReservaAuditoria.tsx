@@ -52,13 +52,13 @@ const ReservaAuditoria = () => {
 
   return (
     <section id="reserva" className="py-20 px-4 bg-white">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-[40px] font-semibold text-foreground mb-4">
             Reserva tu auditoría
           </h2>
           <p className="text-lg text-muted-foreground">
-            Elige día y hora. Si prefieres, déjanos tus datos y te llamamos.
+            Elige día y hora. O déjanos tus datos y te llamamos.
           </p>
         </div>
         
@@ -74,17 +74,17 @@ const ReservaAuditoria = () => {
           
           {/* Formulario Fallback */}
           <div className="order-1 lg:order-2">
-            <div className="bg-muted/20 p-8 rounded-[14px] shadow-lg">
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
+            <div className="bg-white rounded-2xl shadow-md border border-[#F2F2F2] p-10">
+              <h3 className="text-2xl font-semibold text-foreground mb-8">
                 O déjanos tus datos
               </h3>
               
               {showSuccess ? (
-                <div className="bg-primary/10 border-2 border-primary rounded-lg p-6 text-center">
-                  <p className="text-lg font-semibold text-foreground mb-2">
+                <div className="bg-primary/5 border-2 border-primary rounded-xl p-8 text-center">
+                  <p className="text-2xl font-bold text-foreground mb-3">
                     ✅ Listo
                   </p>
-                  <p className="text-muted-foreground">
+                  <p className="text-lg text-muted-foreground">
                     Te contactamos hoy para fijar hora.
                   </p>
                 </div>
@@ -154,7 +154,7 @@ const ReservaAuditoria = () => {
                   
                   <button 
                     type="submit" 
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 rounded-[14px] text-lg transition-all duration-300 hover:shadow-glow"
+                    className="w-full bg-primary hover:opacity-90 text-primary-foreground font-semibold h-14 rounded-xl text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40"
                   >
                     Enviar y agendar
                   </button>

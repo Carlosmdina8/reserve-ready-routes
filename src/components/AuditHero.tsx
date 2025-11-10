@@ -4,44 +4,67 @@ const AuditHero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 py-20 bg-white">
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-          Auditoría Digital Gratuita para tu restaurante
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-          15 minutos para detectar por qué no te encuentran y cómo llenar más mesas. Informe en 24 h.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 text-lg text-foreground">
-          <span className="flex items-center gap-2">
-            <span className="text-primary">✓</span> Sin coste
-          </span>
-          <span className="hidden sm:inline text-muted-foreground">·</span>
-          <span className="flex items-center gap-2">
-            <span className="text-primary">✓</span> Sin permanencias
-          </span>
-          <span className="hidden sm:inline text-muted-foreground">·</span>
-          <span className="flex items-center gap-2">
-            <span className="text-primary">✓</span> Diagnóstico accionable
-          </span>
+    <section 
+      id="hero" 
+      className="min-h-screen flex items-center justify-center px-4 py-32 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-[12px]"></div>
+      
+      {/* Content Card */}
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-lg border border-[#F2F2F2] p-10 md:p-16 relative">
+          {/* Logo Badge */}
+          <img 
+            src="/brand/medina-logo.png" 
+            alt="Medina Agency" 
+            className="absolute bottom-5 right-5 h-16 w-16 md:h-20 md:w-20 rounded-full shadow-md"
+          />
+          
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-foreground mb-6 leading-tight">
+              Auditoría Digital Gratuita para tu restaurante
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+              15 minutos para detectar por qué no te encuentran y cómo llenar más mesas. Informe en 24 h.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 justify-center items-center mb-10 text-base md:text-lg text-foreground">
+              <span className="flex items-center gap-2">
+                <span className="text-primary font-bold">✓</span> Sin coste
+              </span>
+              <span className="text-muted-foreground">·</span>
+              <span className="flex items-center gap-2">
+                <span className="text-primary font-bold">✓</span> Sin permanencias
+              </span>
+              <span className="text-muted-foreground">·</span>
+              <span className="flex items-center gap-2">
+                <span className="text-primary font-bold">✓</span> Diagnóstico accionable
+              </span>
+            </div>
+            
+            <button
+              onClick={scrollToReserva}
+              className="bg-primary hover:opacity-90 text-primary-foreground font-semibold px-12 h-14 rounded-xl text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 transform hover:scale-105"
+            >
+              Agendar auditoría gratis
+            </button>
+            
+            <p className="text-[13px] text-muted-foreground mt-6">
+              Al enviar aceptas nuestra{' '}
+              <a href="/politica-privacidad" className="text-primary hover:underline">
+                Política de privacidad
+              </a>
+              .
+            </p>
+          </div>
         </div>
-        
-        <button
-          onClick={scrollToReserva}
-          className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-12 py-4 rounded-[14px] text-lg transition-all duration-300 hover:shadow-glow transform hover:scale-105"
-        >
-          Agendar auditoría gratis
-        </button>
-        
-        <p className="text-sm text-muted-foreground mt-6">
-          Al enviar aceptas nuestra{' '}
-          <a href="#" className="text-primary hover:underline">
-            Política de privacidad
-          </a>
-          .
-        </p>
       </div>
     </section>
   );

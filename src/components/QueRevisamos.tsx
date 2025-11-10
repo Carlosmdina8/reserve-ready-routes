@@ -33,66 +33,66 @@ const QueRevisamos = () => {
   ];
 
   return (
-    <section id="que-revisamos" className="py-20 px-4 bg-white">
+    <section id="que-revisamos" className="py-12 md:py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-[40px] font-semibold text-foreground text-center mb-16">
+        <h2 className="text-2xl md:text-[40px] font-semibold text-foreground text-center mb-8 md:mb-16">
           Qué te llevas en 24 h
         </h2>
         
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-          {/* Left: Benefits */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-md border border-[#F2F2F2] p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">✓</span>
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-start mb-8 md:mb-12">
+          {/* Left: Benefits - Grid layout for mobile */}
+          <div className="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-6">
+            <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-4 md:p-8 col-span-2 md:col-span-1">
+              <div className="flex items-start gap-3 md:gap-4">
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl md:text-2xl">✓</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                  <h3 className="text-base md:text-xl font-semibold text-foreground mb-1 md:mb-2">
                     Checklist priorizado
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     Acciones de alto impacto ordenadas por prioridad
                   </p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl shadow-md border border-[#F2F2F2] p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">⚡</span>
+            <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-4 md:p-8">
+              <div className="flex flex-col md:flex-row items-start gap-3 md:gap-4">
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl md:text-2xl">⚡</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    3 acciones rápidas para esta semana
+                  <h3 className="text-base md:text-xl font-semibold text-foreground mb-1 md:mb-2">
+                    3 acciones rápidas
                   </h3>
-                  <p className="text-muted-foreground">
-                    Cambios inmediatos que puedes aplicar hoy mismo
+                  <p className="text-sm md:text-base text-muted-foreground">
+                    Cambios inmediatos aplicables hoy
                   </p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl shadow-md border border-[#F2F2F2] p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">📊</span>
+            <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-4 md:p-8">
+              <div className="flex flex-col md:flex-row items-start gap-3 md:gap-4">
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl md:text-2xl">📊</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Benchmark local básico
+                  <h3 className="text-base md:text-xl font-semibold text-foreground mb-1 md:mb-2">
+                    Benchmark local
                   </h3>
-                  <p className="text-muted-foreground">
-                    Compara tu presencia digital con la competencia
+                  <p className="text-sm md:text-base text-muted-foreground">
+                    Compara tu presencia con la competencia
                   </p>
                 </div>
               </div>
             </div>
           </div>
           
-          {/* Right: Mockup */}
-          <div className="flex justify-center">
+          {/* Right: Mockup - hidden on mobile, shown on desktop */}
+          <div className="hidden lg:flex justify-center">
             <div className="bg-white rounded-2xl shadow-xl border border-[#F2F2F2] p-8 w-full max-w-md">
               <div className="aspect-[3/4] bg-gradient-to-br from-primary/5 to-primary/20 rounded-lg flex flex-col items-center justify-center p-8 border-2 border-primary/20">
                 <img 
@@ -120,8 +120,8 @@ const QueRevisamos = () => {
         </div>
         
         {/* Urgency band */}
-        <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 mb-8 text-center">
-          <p className="text-lg text-foreground">
+        <div className="bg-primary/5 border border-primary/20 rounded-xl p-3 md:p-6 mb-6 md:mb-8 text-center">
+          <p className="text-sm md:text-lg text-foreground">
             <span className="font-semibold">Cupo semanal: 8 auditorías</span>
             <span className="text-muted-foreground mx-2">·</span>
             <span className="text-primary font-semibold">Aún disponibles hoy</span>
@@ -131,7 +131,7 @@ const QueRevisamos = () => {
         <div className="text-center">
           <button
             onClick={scrollToReserva}
-            className="bg-primary hover:opacity-90 text-primary-foreground font-semibold px-12 h-14 rounded-xl text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 transform hover:scale-105"
+            className="bg-primary hover:opacity-90 text-primary-foreground font-semibold px-8 md:px-12 h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 transform hover:scale-105"
           >
             Quiero mi auditoría gratis
           </button>

@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'h-11 bg-white/95 backdrop-blur-md shadow-sm' : 'h-16 bg-transparent'
+        isScrolled ? 'h-11 bg-white/95 backdrop-blur-md shadow-sm' : 'h-14 md:h-16 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 h-full flex items-center">
@@ -32,7 +32,7 @@ const Header = () => {
             src="/brand/medina-logo.png" 
             alt="Medina Agency" 
             className={`transition-all duration-300 rounded-full ${
-              isScrolled ? 'h-8 w-8' : 'h-10 w-10'
+              isScrolled ? 'h-7 w-7 md:h-8 md:w-8' : 'h-8 w-8 md:h-10 md:w-10'
             }`}
           />
         </button>

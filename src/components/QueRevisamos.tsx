@@ -33,86 +33,84 @@ const QueRevisamos = () => {
   ];
 
   return (
-    <section id="que-revisamos" className="py-12 md:py-20 px-4 bg-white">
+    <section id="que-revisamos" className="py-8 md:py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-[40px] font-semibold text-foreground text-center mb-8 md:mb-16">
-          Qué te llevas en 24 h
+        <h2 className="text-xl md:text-[40px] font-semibold text-foreground text-center mb-6 md:mb-12 font-sora">
+          Esto miramos en tu <span className="highlight">auditoría</span>
         </h2>
         
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-start mb-8 md:mb-12">
-          {/* Left: Benefits - Grid layout for mobile */}
-          <div className="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-6">
-            <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-4 md:p-8 col-span-2 md:col-span-1">
-              <div className="flex items-start gap-3 md:gap-4">
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-xl md:text-2xl">✓</span>
+        {/* Mobile: 2x3 grid, Desktop: side by side */}
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-start mb-6 md:mb-12">
+          {/* Left: 6 items in compact grid */}
+          <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-4 md:p-6">
+            <div className="grid grid-cols-2 gap-2 md:gap-4">
+              {items.map((item, index) => (
+                <div 
+                  key={index}
+                  className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-5 hover:shadow-sm transition-all animate-stagger"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex flex-col items-center text-center gap-2">
+                    <div className="flex-shrink-0 w-7 h-7 md:w-10 md:h-10 bg-primary/10 rounded-full flex items-center justify-center hover:rotate-3 transition-transform">
+                      <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                    </div>
+                    <p className="text-xs md:text-sm text-foreground font-medium leading-tight">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-base md:text-xl font-semibold text-foreground mb-1 md:mb-2">
-                    Checklist priorizado
-                  </h3>
-                  <p className="text-sm md:text-base text-muted-foreground">
-                    Acciones de alto impacto ordenadas por prioridad
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-4 md:p-8">
-              <div className="flex flex-col md:flex-row items-start gap-3 md:gap-4">
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-xl md:text-2xl">⚡</span>
-                </div>
-                <div>
-                  <h3 className="text-base md:text-xl font-semibold text-foreground mb-1 md:mb-2">
-                    3 acciones rápidas
-                  </h3>
-                  <p className="text-sm md:text-base text-muted-foreground">
-                    Cambios inmediatos aplicables hoy
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-4 md:p-8">
-              <div className="flex flex-col md:flex-row items-start gap-3 md:gap-4">
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-xl md:text-2xl">📊</span>
-                </div>
-                <div>
-                  <h3 className="text-base md:text-xl font-semibold text-foreground mb-1 md:mb-2">
-                    Benchmark local
-                  </h3>
-                  <p className="text-sm md:text-base text-muted-foreground">
-                    Compara tu presencia con la competencia
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           
-          {/* Right: Mockup - hidden on mobile, shown on desktop */}
-          <div className="hidden lg:flex justify-center">
-            <div className="bg-white rounded-2xl shadow-xl border border-[#F2F2F2] p-8 w-full max-w-md">
-              <div className="aspect-[3/4] bg-gradient-to-br from-primary/5 to-primary/20 rounded-lg flex flex-col items-center justify-center p-8 border-2 border-primary/20">
-                <img 
-                  src="/brand/medina-logo.png" 
-                  alt="Medina Agency" 
-                  className="h-20 w-20 rounded-full mb-6 shadow-md"
-                />
-                <h4 className="text-2xl font-bold text-foreground text-center mb-2">
-                  Auditoría Digital
-                </h4>
-                <p className="text-sm text-muted-foreground text-center mb-6">
-                  Medina Agency
-                </p>
-                <div className="w-full space-y-3">
-                  <div className="h-3 bg-primary/30 rounded-full w-full"></div>
-                  <div className="h-3 bg-primary/30 rounded-full w-5/6"></div>
-                  <div className="h-3 bg-primary/30 rounded-full w-4/6"></div>
-                  <div className="h-3 bg-primary/30 rounded-full w-full mt-6"></div>
-                  <div className="h-3 bg-primary/30 rounded-full w-5/6"></div>
-                  <div className="h-3 bg-primary/30 rounded-full w-3/6"></div>
+          {/* Right: What you get - hidden on mobile, shown on desktop */}
+          <div className="hidden lg:block">
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-8">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">✓</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      Checklist priorizado
+                    </h3>
+                    <p className="text-base text-muted-foreground">
+                      Acciones de alto impacto ordenadas por prioridad
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-8">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">⚡</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      3 acciones rápidas
+                    </h3>
+                    <p className="text-base text-muted-foreground">
+                      Cambios inmediatos aplicables hoy
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-8">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">📊</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      Benchmark local
+                    </h3>
+                    <p className="text-base text-muted-foreground">
+                      Compara tu presencia con la competencia
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -120,18 +118,19 @@ const QueRevisamos = () => {
         </div>
         
         {/* Urgency band */}
-        <div className="bg-primary/5 border border-primary/20 rounded-xl p-3 md:p-6 mb-6 md:mb-8 text-center">
-          <p className="text-sm md:text-lg text-foreground">
-            <span className="font-semibold">Cupo semanal: 8 auditorías</span>
-            <span className="text-muted-foreground mx-2">·</span>
+        <div className="flex justify-center mb-6 md:mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/20 rounded-full text-xs md:text-sm">
+            <span className="text-foreground font-semibold">Cupo semanal: 8 auditorías</span>
+            <span className="text-muted-foreground">·</span>
             <span className="text-primary font-semibold">Aún disponibles hoy</span>
-          </p>
+          </div>
         </div>
         
         <div className="text-center">
           <button
             onClick={scrollToReserva}
-            className="bg-primary hover:opacity-90 text-primary-foreground font-semibold px-8 md:px-12 h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 transform hover:scale-105"
+            className="bg-primary hover:opacity-90 text-primary-foreground font-semibold px-8 md:px-12 h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 hover:scale-[1.02] hover:shadow-md active:scale-[0.99]"
+            data-event="click_cta_revisamos"
           >
             Quiero mi auditoría gratis
           </button>

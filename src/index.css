@@ -98,24 +98,56 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   
-  h1 {
-    @apply text-5xl font-bold leading-tight;
+  h1, h2, h3 {
+    font-family: 'Sora', 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .highlight {
+    @apply text-[#FF6A00] font-semibold;
+    letter-spacing: 0.01em;
   }
   
-  h2 {
-    @apply text-4xl font-semibold leading-tight;
+  .font-sora {
+    font-family: 'Sora', sans-serif;
   }
   
-  @keyframes fade-in {
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  @keyframes fade-up {
     from {
       opacity: 0;
       transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes stagger-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
@@ -134,11 +166,23 @@ All colors MUST be HSL.
     }
   }
   
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out;
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+  
+  .animate-stagger {
+    animation: stagger-fade-in 0.5s ease-out forwards;
   }
   
   .animate-slide-in-bottom {
     animation: slide-in-bottom 0.3s ease-out;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-stagger,
+    .animate-slide-in-bottom {
+      animation: none;
+    }
   }
 }

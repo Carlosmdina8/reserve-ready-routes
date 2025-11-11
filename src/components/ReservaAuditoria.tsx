@@ -51,13 +51,13 @@ const ReservaAuditoria = () => {
   };
 
   return (
-    <section id="reserva" className="py-12 md:py-20 px-4 bg-white">
+    <section id="reserva" className="py-8 md:py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-2xl md:text-[40px] font-semibold text-foreground mb-3 md:mb-4">
-            Reserva tu auditoría
+        <div className="text-center mb-6 md:mb-12">
+          <h2 className="text-xl md:text-[40px] font-semibold text-foreground mb-2 md:mb-4 font-sora">
+            Reserva tu <span className="highlight">auditoría</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground">
+          <p className="text-sm md:text-lg text-muted-foreground">
             Elige día y hora. O déjanos tus datos y te llamamos.
           </p>
         </div>
@@ -66,16 +66,17 @@ const ReservaAuditoria = () => {
           {/* Calendly Widget - First on mobile */}
           <div className="order-1">
             <div 
-              className="calendly-inline-widget rounded-lg overflow-hidden shadow-lg border border-border"
+              className="calendly-inline-widget rounded-lg overflow-hidden shadow-md border border-border"
               data-url="https://calendly.com/info-contact-medinaagency/30min"
-              style={{ minWidth: '320px', height: '600px' }}
+              style={{ minWidth: '320px', height: '760px' }}
+              data-event="open_calendly"
             />
           </div>
           
           {/* Formulario Fallback - Second on mobile */}
           <div className="order-2">
-            <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-6 md:p-10">
-              <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6 md:mb-8">
+            <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-5 md:p-10">
+              <h3 className="text-lg md:text-2xl font-semibold text-foreground mb-5 md:mb-8">
                 O déjanos tus datos
               </h3>
               
@@ -94,14 +95,14 @@ const ReservaAuditoria = () => {
                   onSubmit={handleSubmit}
                   action="https://formsubmit.co/info.contact@medinaagency.es" 
                   method="POST" 
-                  className="space-y-4 md:space-y-5"
+                  className="space-y-3 md:space-y-5"
                 >
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="hidden" name="_subject" value="📩 Nueva solicitud de Auditoría Digital" />
                   <input type="hidden" name="_next" value="https://www.medinaagency.es" />
                   
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5 md:mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
                       Nombre
                     </label>
                     <input
@@ -109,12 +110,12 @@ const ReservaAuditoria = () => {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm md:text-base"
+                      className="w-full px-3 md:px-4 h-11 md:h-12 bg-white border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm md:text-base"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5 md:mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5">
                       Teléfono
                     </label>
                     <input
@@ -122,12 +123,12 @@ const ReservaAuditoria = () => {
                       id="phone"
                       name="phone"
                       required
-                      className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm md:text-base"
+                      className="w-full px-3 md:px-4 h-11 md:h-12 bg-white border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm md:text-base"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5 md:mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
                       Email
                     </label>
                     <input
@@ -135,12 +136,12 @@ const ReservaAuditoria = () => {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm md:text-base"
+                      className="w-full px-3 md:px-4 h-11 md:h-12 bg-white border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm md:text-base"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="restaurant" className="block text-sm font-medium text-foreground mb-1.5 md:mb-2">
+                    <label htmlFor="restaurant" className="block text-sm font-medium text-foreground mb-1.5">
                       Restaurante
                     </label>
                     <input
@@ -148,13 +149,14 @@ const ReservaAuditoria = () => {
                       id="restaurant"
                       name="restaurant"
                       required
-                      className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm md:text-base"
+                      className="w-full px-3 md:px-4 h-11 md:h-12 bg-white border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm md:text-base"
                     />
                   </div>
                   
                   <button 
                     type="submit" 
-                    className="w-full bg-primary hover:opacity-90 text-primary-foreground font-semibold h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40"
+                    className="w-full bg-primary hover:opacity-90 text-primary-foreground font-semibold h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 hover:scale-[1.02] hover:shadow-md active:scale-[0.99]"
+                    data-event="submit_form"
                   >
                     Enviar y agendar
                   </button>

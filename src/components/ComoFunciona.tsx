@@ -6,21 +6,21 @@ const ComoFunciona = () => {
   const steps = [
     {
       number: "1",
-      icon: "📅",
-      title: "Agenda 15 min",
-      description: "Elige tu mejor momento"
+      icon: "🔍",
+      title: "Identificamos qué está fallando",
+      description: "En tu visibilidad online"
     },
     {
       number: "2",
-      icon: "🔍",
-      title: "Analizamos y diagnosticamos",
-      description: "Revisión en tiempo real"
+      icon: "💡",
+      title: "Te explico cómo solucionarlo",
+      description: "En directo, sin pagar publicidad"
     },
     {
       number: "3",
       icon: "📊",
-      title: "Recibes mini-informe",
-      description: "Acciones claras priorizadas"
+      title: "Mini-informe valorado en 200 €",
+      description: "Que otros restaurantes pagan"
     }
   ];
 
@@ -37,25 +37,32 @@ const ComoFunciona = () => {
             {steps.map((step, index) => (
               <div 
                 key={step.number}
-                className="flex-shrink-0 w-[260px] bg-white rounded-xl shadow-sm border border-[#F2F2F2] p-5 snap-center animate-stagger"
+                className="flex-shrink-0 w-[280px] bg-white rounded-xl shadow-md border border-[#F2F2F2] p-6 snap-center animate-stagger hover:shadow-lg transition-all duration-300"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="text-3xl mb-3">{step.icon}</div>
-                  <h3 className="text-base font-semibold text-foreground mb-2">
+                  <div className="text-4xl mb-3 hover:scale-110 transition-transform duration-300">{step.icon}</div>
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                    <span className="text-primary font-bold">{step.number}</span>
+                  </div>
+                  <h3 className="text-base font-semibold text-foreground mb-2 leading-tight">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>
                 </div>
               </div>
             ))}
           </div>
-          {/* Progress indicator */}
-          <div className="flex justify-center gap-1.5">
+          {/* Animated progress indicator */}
+          <div className="flex justify-center gap-2">
             {steps.map((_, index) => (
-              <div key={index} className="h-1 w-8 bg-primary/20 rounded-full"></div>
+              <div 
+                key={index} 
+                className="h-1.5 w-10 bg-primary/30 rounded-full animate-pulse-subtle"
+                style={{ animationDelay: `${index * 0.3}s` }}
+              ></div>
             ))}
           </div>
         </div>
@@ -65,15 +72,18 @@ const ComoFunciona = () => {
           {steps.map((step, index) => (
             <div 
               key={step.number}
-              className="bg-white rounded-xl shadow-sm border border-[#F2F2F2] p-8 hover:shadow-md transition-shadow animate-stagger"
+              className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-stagger group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col items-center text-center">
-                <div className="text-4xl mb-4">{step.icon}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{step.icon}</div>
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <span className="text-primary font-bold text-lg">{step.number}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3 leading-tight">
                   {step.title}
                 </h3>
-                <p className="text-base text-muted-foreground">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </div>

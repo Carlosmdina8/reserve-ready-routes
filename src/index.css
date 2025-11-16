@@ -165,6 +165,53 @@ All colors MUST be HSL.
       opacity: 1;
     }
   }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(255, 106, 0, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(255, 106, 0, 0);
+    }
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
   
   .animate-fade-up {
     animation: fade-up 0.6s ease-out forwards;
@@ -177,11 +224,31 @@ All colors MUST be HSL.
   .animate-slide-in-bottom {
     animation: slide-in-bottom 0.3s ease-out;
   }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
   
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-up,
     .animate-stagger,
-    .animate-slide-in-bottom {
+    .animate-slide-in-bottom,
+    .animate-float,
+    .animate-pulse-subtle,
+    .animate-pulse-glow,
+    .animate-bounce-subtle {
       animation: none;
     }
   }

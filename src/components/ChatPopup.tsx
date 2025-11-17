@@ -1,31 +1,21 @@
 import { useState, useEffect } from 'react';
-import { MessageCircle, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const ChatPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const STORAGE_KEY = 'medina_popup_closed';
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY)) {
-      return;
-    }
-
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 20000);
+    }, 20000); // 20 seconds
 
     return () => clearTimeout(timer);
   }, []);
 
-  const handleClose = () => {
-    setIsVisible(false);
-    localStorage.setItem(STORAGE_KEY, '1');
-  };
-
-  const handleAnalyze = () => {
-    setIsVisible(false);
-    localStorage.setItem(STORAGE_KEY, '1');
+  const scrollToReserva = () => {
     document.getElementById('reserva')?.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false);
   };
 
   if (!isVisible) return null;

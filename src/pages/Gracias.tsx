@@ -7,37 +7,13 @@ const Gracias = () => {
   }, []);
 
   const handleAddToCalendar = () => {
-    // Generate .ics file
-    const event = {
-      title: 'Auditoría Digital - Medina Agency',
-      description: 'Auditoría digital gratuita para tu restaurante',
-      location: 'Videollamada',
-      start: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
-      duration: 'PT30M'
-    };
-    
-    const ics = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-DTSTART:${event.start}
-DURATION:${event.duration}
-SUMMARY:${event.title}
-DESCRIPTION:${event.description}
-LOCATION:${event.location}
-END:VEVENT
-END:VCALENDAR`;
-    
-    const blob = new Blob([ics], { type: 'text/calendar' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'auditoria-medina-agency.ics';
-    link.click();
+    // This will be populated with actual calendar event data
+    alert('Funcionalidad de calendario próximamente');
   };
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent('Hola, he reservado mi auditoría digital. Quiero enviar fotos de mi restaurante.');
-    window.open(`https://wa.me/34644639980?text=${message}`, '_blank');
+    window.open(`https://wa.me/34XXX?text=${message}`, '_blank');
   };
 
   return (

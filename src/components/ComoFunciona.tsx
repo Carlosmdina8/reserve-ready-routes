@@ -8,24 +8,24 @@ const ComoFunciona = () => {
       number: "1",
       icon: "🔍",
       title: "Identificamos qué está fallando",
-      description: "en tu visibilidad online"
+      description: "En tu visibilidad online"
     },
     {
       number: "2",
       icon: "💡",
-      title: "Te explico en directo cómo solucionarlo",
-      description: "sin pagar publicidad"
+      title: "Te explico cómo solucionarlo",
+      description: "En directo, sin pagar publicidad"
     },
     {
       number: "3",
       icon: "📊",
-      title: "Te llevas un mini-informe",
-      description: "que otros restaurantes pagan 200 €"
+      title: "Mini-informe valorado en 200 €",
+      description: "Que otros restaurantes pagan"
     }
   ];
 
   return (
-    <section className="py-8 md:py-20 px-4 bg-white reveal">
+    <section className="py-8 md:py-20 px-4 bg-muted/5">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-xl md:text-[40px] font-semibold text-foreground text-center mb-6 md:mb-12 font-sora">
           3 pasos, <span className="highlight">sin rodeos</span>
@@ -33,19 +33,15 @@ const ComoFunciona = () => {
         
         {/* Mobile: Horizontal scroll carousel */}
         <div className="md:hidden mb-4">
-          <div 
-            id="pasos-scroller"
-            className="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4"
-            style={{ scrollSnapType: 'x mandatory' }}
-          >
+          <div className="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
             {steps.map((step, index) => (
               <div 
                 key={step.number}
-                className="paso-card flex-shrink-0 w-[70vw] bg-white rounded-xl shadow-sm border border-[#F2F2F2] p-5 snap-center hover:shadow-md transition-all duration-300"
-                style={{ scrollSnapAlign: 'center' }}
+                className="flex-shrink-0 w-[280px] bg-white rounded-xl shadow-md border border-[#F2F2F2] p-6 snap-center animate-stagger hover:shadow-lg transition-all duration-300"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="text-3xl mb-3 hover:scale-110 transition-transform duration-300">{step.icon}</div>
+                  <div className="text-4xl mb-3 hover:scale-110 transition-transform duration-300">{step.icon}</div>
                   <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                     <span className="text-primary font-bold">{step.number}</span>
                   </div>
@@ -59,14 +55,14 @@ const ComoFunciona = () => {
               </div>
             ))}
           </div>
-          {/* Active indicator */}
+          {/* Animated progress indicator */}
           <div className="flex justify-center gap-2">
             {steps.map((_, index) => (
-              <span 
+              <div 
                 key={index} 
-                data-step-dot
-                className="inline-block w-6 h-1 bg-border rounded-full transition-all duration-200"
-              ></span>
+                className="h-1.5 w-10 bg-primary/30 rounded-full animate-pulse-subtle"
+                style={{ animationDelay: `${index * 0.3}s` }}
+              ></div>
             ))}
           </div>
         </div>

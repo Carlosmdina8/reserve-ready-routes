@@ -67,7 +67,7 @@ const AuditHero = () => {
             </h1>
             
             <p className="text-base md:text-2xl text-muted-foreground mb-4 md:mb-8 leading-[1.4] md:leading-relaxed animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              En <span className="font-inter font-semibold text-foreground">15 minutos</span> detectamos <span className="font-inter font-semibold text-foreground">por qué no te encuentran</span> y te damos un plan para <span className="font-inter font-semibold text-foreground">llenar más mesas</span>. Informe en <span className="font-inter font-semibold text-foreground">24 h</span>.
+              <span className="font-inter font-semibold text-foreground">15 minutos</span> para detectar <span className="font-inter font-semibold text-foreground">por qué no te encuentran</span> y cómo <span className="font-inter font-semibold text-foreground">llenar más mesas</span>. Informe en <span className="font-inter font-semibold text-foreground">24 h</span>.
             </p>
             
             <div className="flex flex-wrap gap-2 md:gap-4 justify-center items-center mb-5 md:mb-8 text-xs md:text-lg text-foreground animate-fade-up" style={{ animationDelay: '0.4s' }}>

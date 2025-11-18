@@ -1,8 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
-import { useToast } from '@/hooks/use-toast';
 
 const ReservaAuditoria = () => {
-  const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -18,37 +16,6 @@ const ReservaAuditoria = () => {
     };
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const formData = new FormData(formRef.current!);
-    
-    try {
-      const response = await fetch('https://formsubmit.co/info.contact@medinaagency.es', {
-        method: 'POST',
-        body: formData,
-      });
-      
-      if (response.ok) {
-        setShowSuccess(true);
-        toast({
-          title: "✅ Listo",
-          description: "Te contactamos hoy para fijar hora.",
-        });
-        formRef.current?.reset();
-        
-        setTimeout(() => setShowSuccess(false), 5000);
-      } else {
-        throw new Error('Error al enviar el formulario');
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Por favor, intenta de nuevo o usa el calendario.",
-        variant: "destructive",
-      });
-    }
-  };
 
   return (
     <section id="reserva" className="py-8 md:py-20 px-4 bg-white">
@@ -92,14 +59,14 @@ const ReservaAuditoria = () => {
               ) : (
                 <form 
                   ref={formRef} 
-                  onSubmit={handleSubmit}
                   action="https://formsubmit.co/info.contact@medinaagency.es" 
                   method="POST" 
                   className="space-y-3 md:space-y-5"
                 >
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="hidden" name="_subject" value="📩 Nueva solicitud de Auditoría Digital" />
-                  <input type="hidden" name="_next" value="https://www.medinaagency.es" />
+                  <input type="hidden" name="_next" value="https://medinaagency.lovable.app/gracias" />
+                  <input type="hidden" name="_template" value="table" />
                   
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">

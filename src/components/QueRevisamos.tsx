@@ -1,3 +1,7 @@
+const scrollToReserva = () => {
+  document.getElementById('reserva')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 const QueRevisamos = () => {
   const items = [
     {
@@ -72,60 +76,6 @@ const QueRevisamos = () => {
               </div>
             );
           })}
-        </div>
-          
-          {/* Right: What you get - hidden on mobile, shown on desktop */}
-          <div className="hidden lg:block">
-            <div className="space-y-6">
-              <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">✓</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      Checklist priorizado
-                    </h3>
-                    <p className="text-base text-muted-foreground">
-                      Acciones de alto impacto ordenadas por prioridad
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">⚡</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      3 acciones rápidas
-                    </h3>
-                    <p className="text-base text-muted-foreground">
-                      Cambios inmediatos aplicables hoy
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-xl shadow-md border border-[#F2F2F2] p-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">📊</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      Benchmark local
-                    </h3>
-                    <p className="text-base text-muted-foreground">
-                      Compara tu presencia con la competencia
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         
         {/* Urgency band */}

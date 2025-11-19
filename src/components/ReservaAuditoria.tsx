@@ -18,47 +18,28 @@ const ReservaAuditoria = () => {
     };
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const formData = new FormData(formRef.current!);
-    
-    try {
-      const response = await fetch('https://formsubmit.co/info.contact@medinaagency.es', {
-        method: 'POST',
-        body: formData,
-      });
-      
-      if (response.ok) {
-        setShowSuccess(true);
-        toast({
-          title: "✅ Listo",
-          description: "Te contactamos hoy para fijar hora.",
-        });
-        formRef.current?.reset();
-        
-        setTimeout(() => setShowSuccess(false), 5000);
-      } else {
-        throw new Error('Error al enviar el formulario');
+
+  useEffect(() => {
+    // Listen for Calendly events
+    const handleCalendlyEvent = (e: MessageEvent) => {
+      if (e.data.event === 'calendly.event_scheduled') {
+        window.location.href = '/gracias';
       }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Por favor, intenta de nuevo o usa el calendario.",
-        variant: "destructive",
-      });
-    }
-  };
+    };
+    
+    window.addEventListener('message', handleCalendlyEvent);
+    return () => window.removeEventListener('message', handleCalendlyEvent);
+  }, []);
 
   return (
-    <section id="reserva" className="py-8 md:py-20 px-4 bg-white">
+    <section id="reserva" className="py-8 md:py-20 px-4 bg-white reveal">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-6 md:mb-12">
           <h2 className="text-xl md:text-[40px] font-semibold text-foreground mb-2 md:mb-4 font-sora">
             Reserva tu <span className="highlight">auditoría</span>
           </h2>
           <p className="text-sm md:text-lg text-muted-foreground">
-            Elige día y hora. O déjanos tus datos y te llamamos.
+            Reserva tu auditoría en un clic
           </p>
         </div>
         
@@ -67,7 +48,7 @@ const ReservaAuditoria = () => {
           <div className="order-1">
             <div 
               className="calendly-inline-widget rounded-lg overflow-hidden shadow-md border border-border"
-              data-url="https://calendly.com/info-contact-medinaagency/30min"
+              data-url="https://calendly.com/info-contact-medinaagency/30min?hide_gdpr_banner=1"
               style={{ minWidth: '320px', height: '760px' }}
               data-event="open_calendly"
             />
@@ -86,20 +67,20 @@ const ReservaAuditoria = () => {
                     ✅ Listo
                   </p>
                   <p className="text-base md:text-lg text-muted-foreground">
-                    Te contactamos hoy para fijar hora.
+                    Te contactamos hoy para fijar hora
                   </p>
                 </div>
               ) : (
                 <form 
                   ref={formRef} 
-                  onSubmit={handleSubmit}
                   action="https://formsubmit.co/info.contact@medinaagency.es" 
                   method="POST" 
                   className="space-y-3 md:space-y-5"
                 >
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="hidden" name="_subject" value="📩 Nueva solicitud de Auditoría Digital" />
-                  <input type="hidden" name="_next" value="https://www.medinaagency.es" />
+                  <input type="hidden" name="_next" value="https://www.medinaagency.es/gracias" />
+                  <input type="hidden" name="_template" value="table" />
                   
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
@@ -155,7 +136,7 @@ const ReservaAuditoria = () => {
                   
                   <button 
                     type="submit" 
-                    className="w-full bg-primary hover:opacity-90 text-primary-foreground font-semibold h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 hover:scale-[1.02] hover:shadow-md active:scale-[0.99]"
+                    className="w-full bg-primary hover:opacity-90 hover:shadow-[0_0_25px_rgba(255,106,0,0.4)] text-primary-foreground font-semibold h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 hover:scale-[1.02] active:scale-[0.99]"
                     data-event="submit_form"
                   >
                     Enviar y agendar

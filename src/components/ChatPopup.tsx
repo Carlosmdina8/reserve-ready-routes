@@ -6,6 +6,10 @@ const ChatPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // Check if user has already interacted
+    const hasInteracted = localStorage.getItem('chatPopupInteracted');
+    if (hasInteracted) return;
+
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 20000); // 20 seconds
@@ -14,8 +18,14 @@ const ChatPopup = () => {
   }, []);
 
   const scrollToReserva = () => {
+    localStorage.setItem('chatPopupInteracted', 'true');
     document.getElementById('reserva')?.scrollIntoView({ behavior: 'smooth' });
-    setIsOpen(false);
+    setIsVisible(false);
+  };
+
+  const handleClose = () => {
+    localStorage.setItem('chatPopupInteracted', 'true');
+    setIsVisible(false);
   };
 
   if (!isVisible) return null;
@@ -46,6 +56,13 @@ const ChatPopup = () => {
                     Estoy aquí si necesitas ayuda. — <span className="font-semibold">Carlos</span>
                   </p>
                 </div>
+                <button
+                  onClick={handleClose}
+                  className="text-muted-foreground hover:text-foreground transition-colors flex-shrink-0"
+                  aria-label="Cerrar"
+                >
+                  <X className="w-4 h-4" />
+                </button>
               </div>
               
               {/* Triangle pointer */}
@@ -71,7 +88,7 @@ const ChatPopup = () => {
                 </div>
               </div>
               <button 
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
               >
                 <X className="w-5 h-5" />
@@ -86,7 +103,7 @@ const ChatPopup = () => {
               
               <button
                 onClick={scrollToReserva}
-                className="w-full bg-primary hover:opacity-90 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
+                className="w-full bg-primary hover:opacity-90 hover:shadow-[0_0_25px_rgba(255,106,0,0.4)] text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-sm"
               >
                 Analizar ahora
               </button>

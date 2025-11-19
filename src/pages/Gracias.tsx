@@ -13,7 +13,7 @@ const Gracias = () => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent('Hola, he reservado mi auditoría digital. Quiero enviar fotos de mi restaurante.');
-    window.open(`https://wa.me/34XXX?text=${message}`, '_blank');
+    window.open(`https://wa.me/34636597149?text=${message}`, '_blank');
   };
 
   return (

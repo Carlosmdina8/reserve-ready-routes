@@ -38,7 +38,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-8 md:py-20 px-4 bg-white">
+    <section className="py-8 md:py-20 px-4 bg-white reveal">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-xl md:text-[40px] font-semibold text-foreground text-center mb-6 md:mb-12 font-sora">
           Preguntas <span className="highlight">frecuentes</span>

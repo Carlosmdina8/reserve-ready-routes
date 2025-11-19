@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 const AuditHero = () => {
   const [availableSlots, setAvailableSlots] = useState(5);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   const scrollToReserva = () => {
     document.getElementById('reserva')?.scrollIntoView({ behavior: 'smooth' });
@@ -13,16 +12,6 @@ const AuditHero = () => {
     if (saved) {
       setAvailableSlots(parseInt(saved));
     }
-
-    // Parallax effect
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      setMousePosition({ x, y });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
@@ -32,9 +21,7 @@ const AuditHero = () => {
       style={{
         backgroundImage: 'url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80")',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-        transition: 'transform 0.3s ease-out'
+        backgroundPosition: 'center'
       }}
     >
       {/* Overlay */}
@@ -57,9 +44,14 @@ const AuditHero = () => {
           />
           
           <div className="text-center md:pr-0">
+            {/* Stars */}
+            <div className="text-[#FF6A00] text-base md:text-lg mb-1 animate-fade-up" style={{ animationDelay: '0.05s' }}>
+              ★★★★★
+            </div>
+            
             {/* Micro writing */}
-            <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-              ⭐ Restauradores valoran nuestra auditoría gratuita
+            <p className="text-[14px] md:text-[16px] text-muted-foreground mb-3 md:mb-4 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+              Restauradores valoran nuestra auditoría gratuita
             </p>
             
             <h1 className="text-[28px] leading-[1.2] md:text-5xl lg:text-[56px] font-bold text-foreground mb-3 md:mb-6 font-sora animate-fade-up" style={{ animationDelay: '0.2s' }}>
@@ -67,7 +59,7 @@ const AuditHero = () => {
             </h1>
             
             <p className="text-base md:text-2xl text-muted-foreground mb-4 md:mb-8 leading-[1.4] md:leading-relaxed animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              15 minutos para detectar <span className="font-inter font-semibold text-foreground">por qué no te encuentran</span> y cómo llenar más mesas. Informe en 24 h.
+              En <span className="font-inter font-semibold text-foreground">15 minutos</span> detectamos <span className="font-inter font-semibold text-foreground">por qué no te encuentran</span> y te damos un plan para <span className="font-inter font-semibold text-foreground">llenar más mesas</span>. Informe en <span className="font-inter font-semibold text-foreground">24 h</span>.
             </p>
             
             <div className="flex flex-wrap gap-2 md:gap-4 justify-center items-center mb-5 md:mb-8 text-xs md:text-lg text-foreground animate-fade-up" style={{ animationDelay: '0.4s' }}>
@@ -96,7 +88,7 @@ const AuditHero = () => {
             
             <button
               onClick={scrollToReserva}
-              className="group relative bg-primary hover:opacity-90 text-primary-foreground font-bold px-8 md:px-12 h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-lg focus:ring-2 focus:ring-primary/40 hover:scale-[1.03] hover:shadow-2xl active:scale-[0.98] overflow-hidden animate-fade-up"
+              className="group relative bg-primary hover:opacity-90 text-primary-foreground font-bold px-8 md:px-12 h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-lg focus:ring-2 focus:ring-primary/40 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(255,106,0,0.4)] active:scale-[0.98] overflow-hidden animate-fade-up"
               data-event="click_cta_hero"
               style={{ animationDelay: '0.6s' }}
             >

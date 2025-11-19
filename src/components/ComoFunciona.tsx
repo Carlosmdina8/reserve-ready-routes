@@ -1,31 +1,52 @@
+import { useState, useEffect, useRef } from 'react';
+
 const ComoFunciona = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  
   const scrollToReserva = () => {
     document.getElementById('reserva')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrollRef.current) return;
+      const scrollLeft = scrollRef.current.scrollLeft;
+      const cardWidth = scrollRef.current.offsetWidth * 0.7;
+      const newActiveStep = Math.round(scrollLeft / cardWidth);
+      setActiveStep(newActiveStep);
+    };
+
+    const scrollElement = scrollRef.current;
+    if (scrollElement) {
+      scrollElement.addEventListener('scroll', handleScroll);
+      return () => scrollElement.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   const steps = [
     {
       number: "1",
       icon: "🔍",
       title: "Identificamos qué está fallando",
-      description: "En tu visibilidad online"
+      description: "en tu visibilidad online"
     },
     {
       number: "2",
       icon: "💡",
       title: "Te explico cómo solucionarlo",
-      description: "En directo, sin pagar publicidad"
+      description: "en directo, sin pagar publicidad"
     },
     {
       number: "3",
       icon: "📊",
       title: "Mini-informe valorado en 200 €",
-      description: "Que otros restaurantes pagan"
+      description: "que otros restaurantes pagan"
     }
   ];
 
   return (
-    <section className="py-8 md:py-20 px-4 bg-muted/5">
+    <section className="py-8 md:py-20 px-4 bg-muted/5 reveal">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-xl md:text-[40px] font-semibold text-foreground text-center mb-6 md:mb-12 font-sora">
           3 pasos, <span className="highlight">sin rodeos</span>
@@ -33,15 +54,17 @@ const ComoFunciona = () => {
         
         {/* Mobile: Horizontal scroll carousel */}
         <div className="md:hidden mb-4">
-          <div className="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+          <div 
+            ref={scrollRef}
+            className="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4"
+          >
             {steps.map((step, index) => (
               <div 
                 key={step.number}
-                className="flex-shrink-0 w-[280px] bg-white rounded-xl shadow-md border border-[#F2F2F2] p-6 snap-center animate-stagger hover:shadow-lg transition-all duration-300"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="flex-shrink-0 w-[70%] bg-white rounded-xl shadow-md border border-[#F2F2F2] p-6 snap-center hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="text-4xl mb-3 hover:scale-110 transition-transform duration-300">{step.icon}</div>
+                  <div className="text-4xl mb-3">{step.icon}</div>
                   <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                     <span className="text-primary font-bold">{step.number}</span>
                   </div>
@@ -55,13 +78,14 @@ const ComoFunciona = () => {
               </div>
             ))}
           </div>
-          {/* Animated progress indicator */}
+          {/* Active indicator */}
           <div className="flex justify-center gap-2">
             {steps.map((_, index) => (
               <div 
                 key={index} 
-                className="h-1.5 w-10 bg-primary/30 rounded-full animate-pulse-subtle"
-                style={{ animationDelay: `${index * 0.3}s` }}
+                className={`h-1 w-8 rounded-full transition-all duration-300 ${
+                  activeStep === index ? 'bg-primary' : 'bg-[#E5E7EB]'
+                }`}
               ></div>
             ))}
           </div>

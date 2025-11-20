@@ -1,36 +1,37 @@
 import { useState, useEffect } from 'react';
+import { MapPin, Search, Camera, Link, Star, Instagram } from 'lucide-react';
 
 const QueRevisamos = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
   const items = [
     {
-      icon: "🗺️",
+      icon: MapPin,
       title: "Google Maps y TripAdvisor",
       description: "Ficha completa y optimizada"
     },
     {
-      icon: "🔍",
+      icon: Search,
       title: "Búsquedas de marca y keywords locales",
       description: "Palabras clave que usan tus clientes"
     },
     {
-      icon: "📸",
+      icon: Camera,
       title: "Fotos, menús y coherencia visual",
       description: "Presencia profesional y atractiva"
     },
     {
-      icon: "🔗",
+      icon: Link,
       title: "Reservas y enlaces rotos",
       description: "Facilidad para que te contacten"
     },
     {
-      icon: "⭐",
+      icon: Star,
       title: "Reseñas y respuestas",
       description: "Gestión de reputación online"
     },
     {
-      icon: "📱",
+      icon: Instagram,
       title: "Instagram: bio, highlights y últimos 9 posts",
       description: "Estrategia de redes sociales"
     }
@@ -60,7 +61,7 @@ const QueRevisamos = () => {
         </h2>
         
         {/* Mobile: 2x3 grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8 mb-4 md:mb-8">
           {items.map((item, index) => {
             const titleWords = item.title.split(' ');
             const highlightIndex = Math.floor(titleWords.length / 2);
@@ -68,10 +69,10 @@ const QueRevisamos = () => {
             return (
               <div 
                 key={index}
-                className={`bg-white rounded-xl shadow-md border transition-all duration-300 p-3 md:p-6 cursor-pointer ${
+                className={`bg-white rounded-2xl border transition-all duration-300 p-4 md:p-6 cursor-pointer ${
                   hoveredIndex === index 
-                    ? 'border-[#FFEEE5] shadow-sm' 
-                    : 'border-[#F2F2F2]'
+                    ? 'border-primary/30 shadow-md' 
+                    : 'border-border shadow-sm'
                 }`}
                 style={{ 
                   animationDelay: `${index * 0.08}s`,
@@ -82,11 +83,11 @@ const QueRevisamos = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div 
-                  className={`text-3xl md:text-4xl mb-2 md:mb-3 transition-colors duration-300 ${
-                    hoveredIndex === index ? 'text-primary' : ''
+                  className={`mb-3 md:mb-4 transition-all duration-300 ${
+                    hoveredIndex === index ? 'text-primary scale-105' : 'text-muted-foreground'
                   }`}
                 >
-                  {item.icon}
+                  <item.icon size={28} strokeWidth={1.5} className="md:w-8 md:h-8" />
                 </div>
                 <h3 className="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2 leading-tight">
                   {titleWords.map((word, i) => (

@@ -10,6 +10,7 @@ import Header from "@/components/Header";
 import StickyCTA from "@/components/StickyCTA";
 import ScrollProgress from "@/components/ScrollProgress";
 import ChatPopup from "@/components/ChatPopup";
+import CookieConsent from "@/components/CookieConsent";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -49,6 +50,7 @@ const Index = () => {
       <Footer />
       <StickyCTA />
       <ChatPopup />
+      <CookieConsent />
     </div>
   );
 };

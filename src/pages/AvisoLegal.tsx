@@ -121,9 +121,7 @@ const AvisoLegal = () => {
           <Accordion type="single" collapsible className="space-y-2">
             <SectionContent id="titular" title="Titular del sitio">
               <ul className="list-disc list-inside space-y-2">
-                <li><strong>Titular:</strong> {`{{RAZON_SOCIAL}}`} ({`{{NOMBRE_COMERCIAL}}`})</li>
-                <li><strong>CIF/NIF:</strong> {`{{CIF_NIF}}`}</li>
-                <li><strong>Domicilio:</strong> {`{{DOMICILIO}}`}</li>
+                <li><strong>Titular:</strong> Medina Agency</li>
                 <li><strong>Email:</strong> <a href="mailto:info.contact@medinaagency.es" className="text-[#FF6A00] hover:underline">info.contact@medinaagency.es</a></li>
                 <li><strong>Teléfono:</strong> <a href="tel:+34671765373" className="text-[#FF6A00] hover:underline">+34 671 765 373</a></li>
                 <li><strong>Dominio:</strong> <a href="https://medinaagency.es" className="text-[#FF6A00] hover:underline" target="_blank" rel="noopener noreferrer">https://medinaagency.es</a></li>
@@ -147,7 +145,7 @@ const AvisoLegal = () => {
 
             <SectionContent id="propiedad" title="Propiedad intelectual e industrial">
               <p>
-                Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño gráfico, código fuente, etc.) son propiedad de {`{{RAZON_SOCIAL}}`} o de sus licenciantes y están protegidos por las leyes de propiedad intelectual e industrial.
+                Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño gráfico, código fuente, etc.) son propiedad de Medina Agency o de sus licenciantes y están protegidos por las leyes de propiedad intelectual e industrial.
               </p>
               <p className="mt-3">
                 Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de los contenidos sin autorización expresa y por escrito del titular.
@@ -180,7 +178,7 @@ const AvisoLegal = () => {
                 Este Aviso Legal se rige por la normativa española aplicable, en particular por la Ley 34/2002 de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI), el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD).
               </p>
               <p className="mt-3">
-                Para la resolución de cualquier controversia derivada del acceso o uso de este sitio web, las partes se someten a la jurisdicción de los tribunales de {`{{DOMICILIO}}`}, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.
+                Para la resolución de cualquier controversia derivada del acceso o uso de este sitio web, las partes se someten a los tribunales competentes conforme a la legislación española vigente.
               </p>
             </SectionContent>
           </Accordion>
@@ -188,9 +186,7 @@ const AvisoLegal = () => {
           <>
             <SectionContent id="titular" title="Titular del sitio">
               <ul className="list-disc list-inside space-y-2">
-                <li><strong>Titular:</strong> {`{{RAZON_SOCIAL}}`} ({`{{NOMBRE_COMERCIAL}}`})</li>
-                <li><strong>CIF/NIF:</strong> {`{{CIF_NIF}}`}</li>
-                <li><strong>Domicilio:</strong> {`{{DOMICILIO}}`}</li>
+                <li><strong>Titular:</strong> Medina Agency</li>
                 <li><strong>Email:</strong> <a href="mailto:info.contact@medinaagency.es" className="text-[#FF6A00] hover:underline">info.contact@medinaagency.es</a></li>
                 <li><strong>Teléfono:</strong> <a href="tel:+34671765373" className="text-[#FF6A00] hover:underline">+34 671 765 373</a></li>
                 <li><strong>Dominio:</strong> <a href="https://medinaagency.es" className="text-[#FF6A00] hover:underline" target="_blank" rel="noopener noreferrer">https://medinaagency.es</a></li>
@@ -214,7 +210,7 @@ const AvisoLegal = () => {
 
             <SectionContent id="propiedad" title="Propiedad intelectual e industrial">
               <p>
-                Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño gráfico, código fuente, etc.) son propiedad de {`{{RAZON_SOCIAL}}`} o de sus licenciantes y están protegidos por las leyes de propiedad intelectual e industrial.
+                Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño gráfico, código fuente, etc.) son propiedad de Medina Agency o de sus licenciantes y están protegidos por las leyes de propiedad intelectual e industrial.
               </p>
               <p className="mt-3">
                 Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de los contenidos sin autorización expresa y por escrito del titular.
@@ -247,7 +243,7 @@ const AvisoLegal = () => {
                 Este Aviso Legal se rige por la normativa española aplicable, en particular por la Ley 34/2002 de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI), el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD).
               </p>
               <p className="mt-3">
-                Para la resolución de cualquier controversia derivada del acceso o uso de este sitio web, las partes se someten a la jurisdicción de los tribunales de {`{{DOMICILIO}}`}, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.
+                Para la resolución de cualquier controversia derivada del acceso o uso de este sitio web, las partes se someten a los tribunales competentes conforme a la legislación española vigente.
               </p>
             </SectionContent>
           </>

@@ -124,9 +124,7 @@ const PoliticaPrivacidad = () => {
           <Accordion type="single" collapsible className="space-y-2">
             <SectionContent id="responsable" title="1. Responsable del tratamiento">
               <ul className="list-disc list-inside space-y-2">
-                <li><strong>Responsable:</strong> {`{{RAZON_SOCIAL}}`} ({`{{NOMBRE_COMERCIAL}}`})</li>
-                <li><strong>CIF/NIF:</strong> {`{{CIF_NIF}}`}</li>
-                <li><strong>Domicilio:</strong> {`{{DOMICILIO}}`}</li>
+                <li><strong>Responsable:</strong> Medina Agency</li>
                 <li><strong>Email:</strong> <a href="mailto:info.contact@medinaagency.es" className="text-[#FF6A00] hover:underline">info.contact@medinaagency.es</a></li>
                 <li><strong>Teléfono:</strong> <a href="tel:+34671765373" className="text-[#FF6A00] hover:underline">+34 671 765 373</a></li>
               </ul>
@@ -220,9 +218,7 @@ const PoliticaPrivacidad = () => {
           <>
             <SectionContent id="responsable" title="1. Responsable del tratamiento">
               <ul className="list-disc list-inside space-y-2">
-                <li><strong>Responsable:</strong> {`{{RAZON_SOCIAL}}`} ({`{{NOMBRE_COMERCIAL}}`})</li>
-                <li><strong>CIF/NIF:</strong> {`{{CIF_NIF}}`}</li>
-                <li><strong>Domicilio:</strong> {`{{DOMICILIO}}`}</li>
+                <li><strong>Responsable:</strong> Medina Agency</li>
                 <li><strong>Email:</strong> <a href="mailto:info.contact@medinaagency.es" className="text-[#FF6A00] hover:underline">info.contact@medinaagency.es</a></li>
                 <li><strong>Teléfono:</strong> <a href="tel:+34671765373" className="text-[#FF6A00] hover:underline">+34 671 765 373</a></li>
               </ul>

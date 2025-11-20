@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 const ChatPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // Don't show on /gracias page
+  const shouldShow = location.pathname !== '/gracias';
 
   useEffect(() => {
+    if (!shouldShow) return;
+    
     // Check if user has already interacted
     const hasInteracted = localStorage.getItem('chatPopupInteracted');
     if (hasInteracted) return;
@@ -15,7 +22,7 @@ const ChatPopup = () => {
     }, 20000); // 20 seconds
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [shouldShow]);
 
   const scrollToReserva = () => {
     localStorage.setItem('chatPopupInteracted', 'true');
@@ -28,7 +35,7 @@ const ChatPopup = () => {
     setIsVisible(false);
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || !shouldShow) return null;
 
   return (
     <>

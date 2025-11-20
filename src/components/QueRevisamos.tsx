@@ -63,9 +63,6 @@ const QueRevisamos = () => {
         {/* Mobile: 2x3 grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8 mb-4 md:mb-8">
           {items.map((item, index) => {
-            const titleWords = item.title.split(' ');
-            const highlightIndex = Math.floor(titleWords.length / 2);
-            
             return (
               <div 
                 key={index}
@@ -89,15 +86,8 @@ const QueRevisamos = () => {
                 >
                   <item.icon size={28} strokeWidth={1.5} className="md:w-8 md:h-8" />
                 </div>
-                <h3 className="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2 leading-tight">
-                  {titleWords.map((word, i) => (
-                    <span 
-                      key={i}
-                      className={i === highlightIndex ? 'text-primary' : ''}
-                    >
-                      {word}{i < titleWords.length - 1 ? ' ' : ''}
-                    </span>
-                  ))}
+                <h3 className="text-sm md:text-lg font-semibold text-primary mb-1 md:mb-2 leading-tight">
+                  {item.title}
                 </h3>
                 <p className="text-xs md:text-base text-muted-foreground leading-relaxed">
                   {item.description}

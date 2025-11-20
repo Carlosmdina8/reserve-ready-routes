@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CheckCircle2, Play } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Gracias = () => {
@@ -97,14 +97,14 @@ const Gracias = () => {
                 transitionDelay: '120ms'
               }}
             >
-              <div className="relative aspect-video bg-muted/10 rounded-xl mb-3 md:mb-4 flex items-center justify-center group cursor-pointer hover:bg-muted/20 transition-colors">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Play className="w-6 h-6 md:w-8 md:h-8 text-primary fill-primary" />
-                  </div>
-                  <p className="text-sm text-muted-foreground">Vídeo próximamente</p>
-                </div>
-              </div>
+              <video 
+                className="w-full aspect-video rounded-xl mb-3 md:mb-4"
+                controls
+                poster="/videos/gracias-poster.jpg"
+              >
+                <source src="/videos/gracias.mp4" type="video/mp4" />
+                Tu navegador no soporta la reproducción de video.
+              </video>
               <p className="text-center text-sm md:text-base text-muted-foreground">
                 Qué verás en la llamada y cómo aprovecharla
               </p>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+import { toast } from 'sonner';
 
 const Contacto = () => {
   const navigate = useNavigate();
@@ -12,18 +13,37 @@ const Contacto = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Log form data for debugging
+    console.log('Submitting form with data:');
+    formData.forEach((value, key) => console.log(`${key}: ${value}`));
 
     try {
-      await fetch('https://formsubmit.co/ajax/info.contact@medinaagency.es', {
+      const response = await fetch('https://formsubmit.co/ajax/info.contact@medinaagency.es', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
       });
+
+      const result = await response.json();
+      console.log('FormSubmit response:', result);
+
+      if (result.success) {
+        navigate('/gracias');
+      } else {
+        toast.error('Error al enviar. Por favor, inténtalo de nuevo.');
+        setIsSubmitting(false);
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
+      toast.error('Error de conexión. Por favor, inténtalo de nuevo.');
+      setIsSubmitting(false);
     }
-
-    navigate('/gracias');
   };
 
   return (

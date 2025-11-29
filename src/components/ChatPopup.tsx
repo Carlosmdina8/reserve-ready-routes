@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const ChatPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // Don't show on /gracias page
-  const shouldShow = location.pathname !== '/gracias';
+  // Don't show on /gracias or /contacto pages
+  const shouldShow = location.pathname !== '/gracias' && location.pathname !== '/contacto';
 
   useEffect(() => {
     if (!shouldShow) return;
@@ -24,10 +25,10 @@ const ChatPopup = () => {
     return () => clearTimeout(timer);
   }, [shouldShow]);
 
-  const scrollToReserva = () => {
+  const goToContacto = () => {
     localStorage.setItem('chatPopupInteracted', 'true');
-    document.getElementById('reserva')?.scrollIntoView({ behavior: 'smooth' });
     setIsVisible(false);
+    navigate('/contacto');
   };
 
   const handleClose = () => {
@@ -109,7 +110,7 @@ const ChatPopup = () => {
               </p>
               
               <button
-                onClick={scrollToReserva}
+                onClick={goToContacto}
                 className="w-full bg-primary hover:opacity-90 hover:shadow-[0_0_25px_rgba(255,106,0,0.4)] text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-sm"
               >
                 Analizar ahora

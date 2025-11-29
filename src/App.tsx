@@ -11,6 +11,7 @@ import Sitemap from "./pages/Sitemap";
 import AvisoLegal from "./pages/AvisoLegal";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import Cookies from "./pages/Cookies";
+import Contacto from "./pages/Contacto";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/gracias" element={<Gracias />} />
           <Route path="/nogracias" element={<NoGracias />} />
+          <Route path="/contacto" element={<Contacto />} />
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/aviso-legal" element={<AvisoLegal />} />
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />

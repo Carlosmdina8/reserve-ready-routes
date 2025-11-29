@@ -75,11 +75,12 @@ const ReservaAuditoria = () => {
                   ref={formRef} 
                   action="https://formsubmit.co/info.contact@medinaagency.es" 
                   method="POST" 
+                  target="_self"
                   className="space-y-3 md:space-y-5"
                 >
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="hidden" name="_subject" value="📩 Nueva solicitud de Auditoría Digital" />
-                  <input type="hidden" name="_next" value="https://www.medinaagency.es/gracias" />
+                  <input type="hidden" name="_next" value={typeof window !== 'undefined' ? `${window.location.origin}/gracias` : 'https://www.medinaagency.es/gracias'} />
                   <input type="hidden" name="_template" value="table" />
                   
                   <div>

@@ -63,20 +63,20 @@ const Contacto = () => {
           <div className="text-center mb-6">
             <img 
               src="/brand/medina-logo.png" 
-              alt="Medina Agency" 
-              className="h-10 mx-auto mb-4"
+              alt="Carlos Medina" 
+              className="h-12 w-12 rounded-full mx-auto mb-4"
             />
             <h1 className="text-2xl font-bold text-foreground mb-2">
-              Solicita tu auditoría
+              Hablemos
             </h1>
             <p className="text-muted-foreground text-sm">
-              Completa el formulario y te contactaremos en menos de 24h
+              Cuéntame un poco sobre tu restaurante y te respondo en menos de 24h
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_subject" value="📩 Nueva solicitud de Auditoría Digital" />
+            <input type="hidden" name="_subject" value="📩 Nueva solicitud de contacto - Carlos Medina" />
             <input type="hidden" name="_template" value="table" />
 
             <div>
@@ -140,7 +140,7 @@ const Contacto = () => {
               disabled={isSubmitting}
               className="w-full h-12 rounded-xl text-base font-semibold mt-2"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar y agendar'}
+              {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
             </Button>
           </form>
 

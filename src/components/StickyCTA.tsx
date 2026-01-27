@@ -34,7 +34,7 @@ const StickyCTA = () => {
           className="w-full bg-primary hover:opacity-90 text-primary-foreground font-semibold h-12 md:h-14 rounded-xl text-base md:text-lg transition-all duration-300 shadow-sm focus:ring-2 focus:ring-primary/40 hover:scale-[1.02] hover:shadow-md active:scale-[0.99]"
           data-event="click_sticky_cta"
         >
-          Auditoría gratis
+          Hablemos
         </button>
       </div>
     </div>

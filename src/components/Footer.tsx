@@ -7,11 +7,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 mb-4 md:mb-8">
           <div className="flex items-center gap-3">
             <img 
-              src="/brand/medina-logo.png" 
-              alt="Medina Agency" 
-              className="h-10 w-10 rounded-full"
+              src="/brand/carlos-medina.png" 
+              alt="Carlos Medina" 
+              className="h-10 w-10 rounded-full object-cover"
             />
-            <span className="text-base md:text-lg font-semibold font-sora">Medina Agency</span>
+            <span className="text-base md:text-lg font-semibold font-sora">Carlos Medina</span>
           </div>
           
           <div className="flex flex-wrap justify-center gap-3 md:gap-6 text-xs md:text-base">

@@ -29,9 +29,9 @@ const Header = () => {
           aria-label="Volver al inicio"
         >
           <img 
-            src="/brand/medina-logo.png" 
+            src="/brand/carlos-medina.png" 
             alt="Carlos Medina" 
-            className={`transition-all duration-300 rounded-full ${
+            className={`transition-all duration-300 rounded-full object-cover ${
               isScrolled ? 'h-8 w-8' : 'h-8 w-8 md:h-10 md:w-10'
             }`}
           />
